@@ -101,7 +101,7 @@ public class Pessoa {
         return dataNascimento;
     }
 
-    public void setDataNascimento(java.util.Date dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -127,4 +127,5 @@ public class Pessoa {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }

@@ -34,30 +34,24 @@ public class PessoaService {
 	
 	//Editar dados pessoais
 	public Pessoa update(Pessoa pessoa) {
-        Optional<Pessoa> findPessoa = pessoaRepository.findById(pessoa.getId());
+	    Pessoa findPessoa = pessoaRepository.findById(pessoa.getId())
+	            .orElseThrow(() -> new PessoaNotFoundException("Pessoa não encontrada para atualização: ID " + pessoa.getId()));
 
-        if (findPessoa.isEmpty()) {
-            throw new PessoaNotFoundException("Dados pessoais não encontrados com base no ID: " + pessoa.getId());
-        }
+	    // Atualiza os dados
+	    findPessoa.setNome(pessoa.getNome());
+	    findPessoa.setEndereco(pessoa.getEndereco());
+	    findPessoa.setCep(pessoa.getCep());
+	    findPessoa.setCidade(pessoa.getCidade());
+	    findPessoa.setUF(pessoa.getUF());
+	    findPessoa.setDataNascimento(pessoa.getDataNascimento());
+	    findPessoa.setEmail(pessoa.getEmail());
 
-        Pessoa updPessoa = findPessoa.get();
-        updPessoa.setNome(pessoa.getNome());
-        updPessoa.setEndereco(pessoa.getEndereco());
-        updPessoa.setCep(pessoa.getCep());
-        updPessoa.setCidade(pessoa.getCidade());
-        updPessoa.setUF(pessoa.getUF());
-        updPessoa.setDataNascimento(pessoa.getDataNascimento());
-        updPessoa.setEmail(pessoa.getEmail());
-
-        return pessoaRepository.save(updPessoa);
-    }
+	    return pessoaRepository.save(findPessoa);
+	}
 	
 	//Filtrar pessoa com base no Id
-	public Pessoa findById(Long id){
-		//SELECT * FROM PESSOA WHERE ID = 
-		//Busca pessoa com base no Id, caso não encontre gera o erro personalizado
-		return pessoaRepository.findById(id)
-				.orElseThrow(() -> new PessoaNotFoundException("Dados pessoais não encontrados com base no ID: " + id));
+	public Optional<Pessoa> findById(Long id) {
+	    return pessoaRepository.findById(id);
 	}
 	
 	//Filtrar os dados pessoais com base no Id e concatena endereço
