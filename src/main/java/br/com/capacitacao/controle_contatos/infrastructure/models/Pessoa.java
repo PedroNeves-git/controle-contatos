@@ -1,17 +1,21 @@
-package br.com.capacitacao.controle_contatos.infrastructure.entities;
+package br.com.capacitacao.controle_contatos.infrastructure.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Pessoa")
+@Table(name = "PESSOA")
 public class Pessoa {
 	
 	//Atributos
@@ -33,6 +37,13 @@ public class Pessoa {
     private Date dataNascimento;
     
     private String email;
+    
+    //CascadeType.ALL: Permite que ao salvar ou excluir uma Pessoa, todos os Contatos associados sejam alterados automaticamente.
+    //orphanRemoval = true: Remove contatos automaticamente caso sejam desvinculados da pessoa.
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contato> contatos = new ArrayList<>();
+
+    
     // Construtor default
     public Pessoa() {}
 

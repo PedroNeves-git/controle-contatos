@@ -1,4 +1,4 @@
-package br.com.capacitacao.controle_contatos.business;
+package br.com.capacitacao.controle_contatos.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.capacitacao.controle_contatos.controller.dto.PessoaMalaDiretaRecord;
 import br.com.capacitacao.controle_contatos.exception.PessoaException;
 import br.com.capacitacao.controle_contatos.exception.PessoaNotFoundException;
-import br.com.capacitacao.controle_contatos.infrastructure.entities.Pessoa;
+import br.com.capacitacao.controle_contatos.infrastructure.models.Pessoa;
 import br.com.capacitacao.controle_contatos.infrastructure.repositories.PessoaRepository;
 
 @Service

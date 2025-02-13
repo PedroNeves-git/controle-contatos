@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.capacitacao.controle_contatos.business.PessoaService;
 import br.com.capacitacao.controle_contatos.controller.dto.PessoaMalaDiretaRecord;
 import br.com.capacitacao.controle_contatos.controller.dto.PessoaRecord;
-import br.com.capacitacao.controle_contatos.infrastructure.entities.Pessoa;
+import br.com.capacitacao.controle_contatos.infrastructure.models.Pessoa;
+import br.com.capacitacao.controle_contatos.service.PessoaService;
 
 @RestController
 @RequestMapping("/api/pessoas")//http://localhost:8080/api/pessoa
