@@ -1,11 +1,11 @@
-package br.com.capacitacao.controle_contatos.controller.dto;
+package br.com.capacitacao.controle_contatos.record.get;
 
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 public record PessoaRecord(
-    Long id,              
+    Long id,
     String nome,          
     String endereco,      
     String cep,           

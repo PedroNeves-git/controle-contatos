@@ -1,4 +1,4 @@
-package br.com.capacitacao.controle_contatos.infrastructure.models;
+package br.com.capacitacao.controle_contatos.models;
 
 import java.util.ArrayList;
 import java.util.Date;

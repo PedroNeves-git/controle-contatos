@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.capacitacao.controle_contatos.exception.ContatoException;
-import br.com.capacitacao.controle_contatos.exception.ContatoNotFoundException;
-import br.com.capacitacao.controle_contatos.exception.PessoaNotFoundException;
-import br.com.capacitacao.controle_contatos.infrastructure.models.Contato;
-import br.com.capacitacao.controle_contatos.infrastructure.models.Pessoa;
-import br.com.capacitacao.controle_contatos.infrastructure.repositories.ContatoRepository;
-import br.com.capacitacao.controle_contatos.infrastructure.repositories.PessoaRepository;
+import br.com.capacitacao.controle_contatos.exception.NotFoundException;
+import br.com.capacitacao.controle_contatos.models.Contato;
+import br.com.capacitacao.controle_contatos.models.Pessoa;
+import br.com.capacitacao.controle_contatos.repositories.ContatoRepository;
+import br.com.capacitacao.controle_contatos.repositories.PessoaRepository;
 
 @Service
 public class ContatoService {
@@ -28,7 +27,7 @@ public class ContatoService {
 	public Contato save(Contato contato, Long pessoaId) {
 		// Verifica se a pessoa existe antes de salvar o contato
         Pessoa pessoa = pessoaRepository.findById(pessoaId)
-                .orElseThrow(() -> new PessoaNotFoundException("Pessoa não encontrada para o ID: " + pessoaId));
+                .orElseThrow(() -> new NotFoundException("Pessoa não encontrada para o ID: " + pessoaId));
 
         contato.setPessoa(pessoa);
 
@@ -42,7 +41,7 @@ public class ContatoService {
 	 // ATUALIZAR CONTATO
     public Contato update(Long id, Contato contatoAtualizado) {
         Contato contatoExistente = contatoRepository.findById(id)
-                .orElseThrow(() -> new ContatoNotFoundException("Contato não encontrado: ID " + id));
+                .orElseThrow(() -> new NotFoundException("Contato não encontrado: ID " + id));
 
         contatoExistente.setTipoContato(contatoAtualizado.getTipoContato());
         contatoExistente.setContato(contatoAtualizado.getContato());
@@ -60,10 +59,14 @@ public class ContatoService {
         return contatoRepository.findAll();
     }
 
+    public List<Contato> findAllContatoByIdPessoa(Long idPessoa) {
+        return contatoRepository.findAllContatoByPessoaId(idPessoa);
+    }
+
     // DELETAR CONTATO POR ID
     public void delete(Long id) {
         if (!contatoRepository.existsById(id)) {
-            throw new ContatoNotFoundException("Contato não encontrado: ID " + id);
+            throw new NotFoundException("Contato não encontrado: ID " + id);
         }
         contatoRepository.deleteById(id);
     }

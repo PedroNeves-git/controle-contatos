@@ -1,4 +1,4 @@
-package br.com.capacitacao.controle_contatos.infrastructure.enums;
+package br.com.capacitacao.controle_contatos.models.enums;
 
 public enum TipoContatoEnum {
 	

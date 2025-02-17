@@ -1,6 +1,7 @@
-package br.com.capacitacao.controle_contatos.infrastructure.models;
+package br.com.capacitacao.controle_contatos.models;
 
-import br.com.capacitacao.controle_contatos.infrastructure.enums.TipoContatoEnum;
+import br.com.capacitacao.controle_contatos.models.enums.TipoContatoEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

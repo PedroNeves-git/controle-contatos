@@ -18,10 +18,15 @@ public class OpenApiConfig {
                 .components(new Components().addSecuritySchemes("basicScheme",
                         new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
                 .info(new Info()
-                        .title("Título API")
-                        .description("Descrição API")
-                        .contact(new Contact().name("Nome").email("Email").url("URL"))
-                        .version("Versão API"));
+                        .title("Controle de Contatos")
+                        .description("API para gerenciar contatos e pessoas")
+                        .version("1.0.0")
+                        .contact(new Contact()
+                                .name("Pedro Henrique Neves dos Santos")
+                                .email("sgtpedrocos@gmail.com")
+                                .url("https://github.com/PedroNeves-git")
+                        )
+                );
     }
 }
 

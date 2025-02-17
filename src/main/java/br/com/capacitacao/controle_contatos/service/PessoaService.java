@@ -3,14 +3,14 @@ package br.com.capacitacao.controle_contatos.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.capacitacao.controle_contatos.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.capacitacao.controle_contatos.controller.dto.PessoaMalaDiretaRecord;
+import br.com.capacitacao.controle_contatos.record.get.PessoaMalaDiretaRecord;
 import br.com.capacitacao.controle_contatos.exception.PessoaException;
-import br.com.capacitacao.controle_contatos.exception.PessoaNotFoundException;
-import br.com.capacitacao.controle_contatos.infrastructure.models.Pessoa;
-import br.com.capacitacao.controle_contatos.infrastructure.repositories.PessoaRepository;
+import br.com.capacitacao.controle_contatos.models.Pessoa;
+import br.com.capacitacao.controle_contatos.repositories.PessoaRepository;
 
 @Service
 public class PessoaService {
@@ -35,7 +35,7 @@ public class PessoaService {
 	//Editar dados pessoais
 	public Pessoa update(Pessoa pessoa) {
 	    Pessoa findPessoa = pessoaRepository.findById(pessoa.getId())
-	            .orElseThrow(() -> new PessoaNotFoundException("Pessoa não encontrada para atualização: ID " + pessoa.getId()));
+	            .orElseThrow(() -> new NotFoundException("Pessoa não encontrada para atualização: ID " + pessoa.getId()));
 
 	    // Atualiza os dados
 	    findPessoa.setNome(pessoa.getNome());
@@ -58,7 +58,7 @@ public class PessoaService {
 	public PessoaMalaDiretaRecord findMalaDiretaById(Long id) {
 		//Busca pessoa com base no Id, caso não encontre gera o erro personalizado
         Pessoa pessoa = pessoaRepository.findById(id)
-        		.orElseThrow(() -> new PessoaNotFoundException("Dados pessoais não encontrados com base no ID: " + id));
+        		.orElseThrow(() -> new NotFoundException("Dados pessoais não encontrados com base no ID: " + id));
         
      // Concatena os dados necessários para a mala direta
         String endCepCidadeUf = String.format("%s, – CEP: %s – %s/%s", 
