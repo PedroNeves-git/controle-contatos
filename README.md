@@ -20,7 +20,7 @@ Esse projeto foi realizado visando apresentar habilidades técnicas relacionados
   <img width="12" />
 </div>
 
-🛠 Tecnologias Utilizadas:
+## 🛠 Tecnologias Utilizadas:
 
 Java (Spring Boot)
 
@@ -31,7 +31,7 @@ Banco de Dados (JPA / Hibernate)
 Swagger (OpenAPI) (Documentação da API)
 ## Rodando localmente
 
-### Pré requisitos 
+### 💻 Pré-requisitos 
 
  Recomendados:
 - JDK 21 https://www.oracle.com/br/java/technologies/downloads/#java21
