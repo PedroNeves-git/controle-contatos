@@ -34,9 +34,8 @@ Swagger (OpenAPI) (Documentação da API)
 ### Pré requisitos 
 
  Recomendados:
- - JDK 21 https://www.oracle.com/br/java/technologies/downloads/#java21
- - Maven 3.9.9 https://maven.apache.org/download.cgi
-IDEA para rodar o projeto (caso queira)
+- JDK 21 https://www.oracle.com/br/java/technologies/downloads/#java21
+- Maven 3.9.9 https://maven.apache.org/download.cgi
 - Eclipse ou Intellij community.
 - Postman para realizar requisições.
 
