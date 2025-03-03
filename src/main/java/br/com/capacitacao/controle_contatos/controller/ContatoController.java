@@ -15,6 +15,7 @@ import br.com.capacitacao.controle_contatos.service.ContatoService;
 
 @RestController
 @RequestMapping("/api/contatos")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ContatoController {
 
     @Autowired
