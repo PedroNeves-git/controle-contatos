@@ -20,24 +20,24 @@ Esse projeto foi realizado visando apresentar habilidades técnicas relacionados
   <img width="12" />
 </div>
 
-🛠 Tecnologias Utilizadas:
+## 🛠 Tecnologias Utilizadas:
 
-Java (Spring Boot)
+**Java 21 (Spring Boot)** → Framework principal da aplicação.  
+- **Maven 3.9.9** → Gerenciador de dependências e build do projeto.  
+- **JPA / Hibernate** → ORM para manipulação do banco de dados.  
+- **Swagger (OpenAPI)** → Ferramenta para documentação e teste da API.  
+- **H2 Database** → Banco de dados em memória utilizado para desenvolvimento e testes.  
+---
 
-Maven (Gerenciamento de dependências)
+## 💻 Como Executar o Projeto  
 
-Banco de Dados (JPA / Hibernate)
-
-Swagger (OpenAPI) (Documentação da API)
-## Rodando localmente
-
-### Pré requisitos 
+### **📌 Pré-requisitos** 
 
  Recomendados:
-- JDK 21 https://www.oracle.com/br/java/technologies/downloads/#java21
-- Maven 3.9.9 https://maven.apache.org/download.cgi
-- Eclipse ou Intellij community.
-- Postman para realizar requisições.
+- [JDK 21](https://www.oracle.com/br/java/technologies/downloads/#java21)  
+- [Maven 3.9.9](https://maven.apache.org/download.cgi)  
+- Um IDE (Eclipse, IntelliJ, VSCode)  
+- [Postman](https://www.postman.com/downloads/) ou outra ferramenta para testar APIs  
 
 ### Variáveis de Ambiente
 
@@ -89,9 +89,14 @@ C:\Program Files\apache-maven-3.9.9
 
 
 
-## Instruções de uso
+## 📌 Instruções de Uso
 
-- Acesse:   http://localhost:8080/
-- Banco:    http://localhost:8080/h2-console  username:sa/password:(em branco)
+- API Base URL: http://localhost:8080
+- Banco de Dados (H2 Console): http://localhost:8080/h2-console
+- Username: sa
+- Password: (deixe em branco)
 - Swagger:  http://localhost:8080/swagger-ui/index.html
 
+Sinta-se à vontade para contribuir! 🚀
+
+👨‍💻 Desenvolvido por Pedro Neves
